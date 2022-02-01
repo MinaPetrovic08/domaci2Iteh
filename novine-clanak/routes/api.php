@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\ClanakController;
+use App\Http\Controllers\UserClanakController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,6 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
+
 Route::resource('users.clanaks', UserClanakController::class)->only(['index']);
 
 Route::post('/register', [AuthController::class, 'register']);
