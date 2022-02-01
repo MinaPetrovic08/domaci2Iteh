@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
-Route::resource('users.clanci', UserClanakController::class)->only(['index']);
+Route::resource('users.clanaks', UserClanakController::class)->only(['index']);
 
 Route::post('/register', [AuthController::class, 'register']);
 
@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         return auth()->user();
     });
 
-    Route::resource('clananci', ClanakController::class)->only(['update', 'store', 'destroy']);
+    Route::resource('clanaks', ClanakController::class)->only(['update', 'store', 'destroy']);
 
     Route::post('/logout', [AuthController::class, 'logout']);
 });
