@@ -17,8 +17,8 @@ class ClanakController extends Controller
      */
     public function index()
     {
-        $clanci = Clanak::all();
-       return ClanakResource::collection($clanci);
+        $clanaks = Clanak::all();
+       return ClanakResource::collection($clanaks);
     }
 
     /**
