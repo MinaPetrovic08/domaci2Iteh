@@ -15,11 +15,11 @@ class ClanakResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'=>$this->resource->id,
-            'naslov'=>$this->resource->naslov,
-            'opis'=>$this->resource->opis,
-            'novine'=>$this->resource->novine,
-            'user' => new UserResource($this->resource->author)
+            'id' => $this->resource->id,
+            'naslov' => $this->resource->naslov,
+            'opis' => $this->resource->opis,
+            'novine' => $this->resource->novine,
+            'user' => new UserResource($this->resource->user)
         ];
     }
 }

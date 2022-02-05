@@ -18,8 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->get('/user', function (Request $req) {
+    return $req->user();
 });
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::get('/users/{id}', [UserController::class, 'show'])->name('users.show');
@@ -31,8 +31,8 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
-    Route::get('/profile', function (Request $request) {
-        return auth()->user();
+    Route::get('/profile', function (Request $req) {
+        return auth()->user($req);
     });
 
     Route::resource('clanaks', ClanakController::class)->only(['update', 'store', 'destroy']);

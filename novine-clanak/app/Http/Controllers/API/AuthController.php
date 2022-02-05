@@ -14,9 +14,9 @@ class AuthController extends Controller
     public function register(Request $req)
     {
         $validator = Validator::make($req->all(), [
-            'name' => 'required|string|max:100',
-            'email' => 'required|string|max:150|email|unique:users',
-            'password' => 'required|string|min:6',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:255|email|unique:users',
+            'password' => 'required|string|min:8',
 
         ]);
         if ($validator->fails()) {
@@ -37,7 +37,7 @@ class AuthController extends Controller
             return response()->json(['message' => 'Unauthorized', 401]);
         }
         $user = User::where('email', $req['email'])->firstOrFail();
-        $token = $user->createToken("auth_token")->plainTextToken;
+        $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json(['message' => 'Hello ' . $user->name . '! Welcome!', 'access_token' => $token, 'token_type' => 'Bearer']);
     }
