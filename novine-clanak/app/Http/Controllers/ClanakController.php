@@ -100,7 +100,7 @@ class ClanakController extends Controller
 
         $clanak->naslov = $request->naslov;
         $clanak->opis = $request->opis;
-        $clanak->category_id = $request->category_id;
+        $clanak->novine_id = $request->novine_id;
 
         $clanak->save();
 
