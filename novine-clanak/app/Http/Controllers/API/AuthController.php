@@ -42,11 +42,11 @@ class AuthController extends Controller
         return response()->json(['message' => 'Hello ' . $user->name . '! Welcome!', 'access_token' => $token, 'token_type' => 'Bearer']);
     }
 
-    /*public function logout()
+    public function logout()
     {
         auth()->user()->tokens()->delete();
         return [
             'message' => 'You are logged out and the token is deleted!'
         ];
-    }*/
+    }
 }

@@ -9,12 +9,14 @@ class Clanak extends Model
 {
     use HasFactory;
 
-    public function novine(){
+    protected $guarded = ['id'];
+
+    public function novine()
+    {
         return $this->belongsTo(Novine::class);
     }
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-
 }

@@ -18,7 +18,7 @@ class ClanakController extends Controller
     public function index()
     {
         $clanaks = Clanak::all();
-       return ClanakResource::collection($clanaks);
+        return ClanakResource::collection($clanaks);
     }
 
     /**
@@ -49,8 +49,8 @@ class ClanakController extends Controller
             return response()->json($validator->errors());
 
         $clanak = Clanak::create([
-            'title' => $request->title,
-            'opis' => $request->slug,
+            'naslov' => $request->naslov,
+            'opis' => $request->opis,
             'novine_id' => $request->novine_id,
             'user_id' => Auth::user()->id,
         ]);
